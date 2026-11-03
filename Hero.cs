@@ -10,6 +10,7 @@ public class Hero {
       Level = 1;
       Experience = 0;
    }
+
    public void TakeDamage(int damage) {
       if (damage <= 0) {
          return;
@@ -21,6 +22,7 @@ public class Hero {
          Health = 0;
       }
    }
+
    public void Heal(int amount) {
       if (amount <= 0) {
          return;
@@ -28,11 +30,23 @@ public class Hero {
 
       Health += amount;
    }
+
    public void GainExperience(int amount) {
       if (amount <= 0) {
          return;
       }
 
       Experience += amount;
+   }
+
+   public bool IsAlive() {
+      return Health > 0;
+   }
+
+   public string GetInfo() {
+      return $">>> {Name} <<<\n" +
+             $"Здоровье: {Health}\n" +
+             $"Уровень: {Level}\n" +
+             $"Опыт: {Experience}";
    }
 }
